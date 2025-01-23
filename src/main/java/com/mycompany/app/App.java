@@ -11,6 +11,7 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(MESSAGE);
+        //Hello Comment
     }
 
     public String getMessage() {
