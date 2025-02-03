@@ -11,4 +11,11 @@ node{
     {
         mail bcc: '', body: 'hi hello from jenkins', cc: '', from: '', replyTo: '', subject: 'git status', to: 'neelima.malur@gmail.com'
     }
+    stage('sonar')
+    {
+        withSonarQubeEnv('sonar')
+        {
+            sh 'mvn sonar:sonar'
+        }
+    }
 }
