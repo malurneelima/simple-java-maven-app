@@ -1,10 +1,14 @@
 node{
-  stage('gitcheckout')
-  {
-    git clone 'https://github.com/malurneelima/simple-java-maven-app'
-  }
-  stage('')
-  {
-    sh 'mvn clean package'
-  }
+    stage('git')
+    {
+        git 'https://github.com/malurneelima/simple-java-maven-app.git' 
+    }
+    stage('compile')
+    {
+        sh 'mvn clean package'
+    }
+    stage('email')
+    {
+        mail bcc: '', body: 'hi hello from jenkins', cc: '', from: '', replyTo: '', subject: 'git status', to: 'neelima.malur@gmail.com'
+    }
 }
